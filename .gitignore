@@ -1,0 +1,16 @@
+.env
+.DS_Store
+node_modules/
+.svelte-kit/
+build/
+coverage/
+test-results/
+playwright-report/
+*.sqlite
+*.sqlite3
+__pycache__/
+.venv/
+state/
+team.csv
+data/*.pdf
+data/*.PDF

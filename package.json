@@ -1,0 +1,37 @@
+{
+  "name": "dmon-presence",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22 <25" },
+  "scripts": {
+    "dev": "vite dev --host 127.0.0.1",
+    "build": "vite build",
+    "start": "node build",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "ingest": "tsx src/cli/ingest.ts",
+    "seed": "tsx src/cli/seed.ts",
+    "test": "npm run test:unit && npm run check && npm run build && npm run test:e2e",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@sveltejs/adapter-node": "^5.5.2",
+    "@sveltejs/kit": "^2.48.5",
+    "better-sqlite3": "^12.6.2",
+    "dotenv": "^17.2.3",
+    "svelte": "^5.43.8",
+    "yaml": "^2.8.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^24.10.1",
+    "svelte-check": "^4.3.4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.4",
+    "vitest": "^4.0.15"
+  }
+}

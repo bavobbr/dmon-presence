@@ -1,0 +1,3 @@
+import {describe,expect,it} from 'vitest';import {normalizeName,resolveName} from '../src/lib/core/names';
+const players=[{id:1,firstName:'Élise',lastName:'De Vries'},{id:2,firstName:'Sam',lastName:'Same'},{id:3,firstName:'Same',lastName:'Sam'}];
+describe('identity normalization',()=>{it('handles unicode, case, whitespace and name order',()=>{expect(normalizeName('  ÉLISE  de-vries ')).toBe('elise de vries');expect(resolveName('De Vries Elise',players)).toMatchObject({status:'matched',player:{id:1}})});it('surfaces ambiguity',()=>expect(resolveName('Sam Same',players)).toEqual({status:'ambiguous'}));it('supports explicit aliases',()=>expect(resolveName('Liz',players,{'liz':'Élise De Vries'})).toMatchObject({status:'matched'}))});

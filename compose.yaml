@@ -1,0 +1,34 @@
+services:
+  dashboard:
+    build: .
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+      STATE_DIR: /app/state
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ./state:/app/state
+    read_only: true
+    tmpfs: [/tmp]
+  ingest:
+    build:
+      context: .
+      target: base
+    env_file: [.env]
+    environment:
+      STATE_DIR: /app/state
+    entrypoint: ["npm", "run", "ingest", "--"]
+    volumes:
+      - ./state:/app/state
+      - ./config:/app/config:ro
+      - ./team.csv:/app/team.csv:ro
+      - ./data:/app/data:ro
+  test:
+    build:
+      context: .
+      target: base
+    command: ["npm", "run", "test"]
+    environment:
+      STATE_DIR: /tmp/dmon-test-state
+    tmpfs: [/tmp]
