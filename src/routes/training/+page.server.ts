@@ -1,1 +1,1 @@
-import type {PageServerLoad} from './$types';import {selectedDataset,trainings} from '$lib/server/queries';export const load:PageServerLoad=({url})=>{const {id}=selectedDataset(url.searchParams.get('dataset'));return {datasetId:id,rows:id?trainings(id):[]}};
+import type {PageServerLoad} from './$types';import {selectedDataset,trainings} from '$lib/server/queries';export const load:PageServerLoad=({url})=>{const {id,isAll}=selectedDataset(url.searchParams.get('dataset'));return {datasetId:id,isAll,rows:id&&!isAll?trainings(id):[]}};

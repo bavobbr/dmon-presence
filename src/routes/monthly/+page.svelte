@@ -37,4 +37,4 @@
       {/if}
     </div>
   {/each}
-</div>{#if !data.data.months.length}<div class="empty">No scorable months available.</div>{/if}</div>
+</div>{#if !data.data.months.length}<div class="empty">{data.isAll?'Pick a specific team to view monthly trends.':'No scorable months available.'}</div>{/if}</div>

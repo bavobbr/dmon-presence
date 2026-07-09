@@ -11,6 +11,6 @@ playwright-report/
 __pycache__/
 .venv/
 state/
-team.csv
-data/*.pdf
-data/*.PDF
+team*.csv
+data*/*.pdf
+data*/*.PDF

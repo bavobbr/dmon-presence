@@ -15,4 +15,4 @@
   <div class="grid"><div class="card metric">Yes<strong>{count('yes')}/{responses.length}</strong></div><div class="card metric">No<strong>{count('no')}/{responses.length}</strong></div><div class="card metric">Unknown<strong>{count('unknown')}/{responses.length}</strong></div><div class="card metric">Administration<strong>{count('yes')+count('no')}/{responses.length}</strong></div></div>
   <div class="table-wrap"><table><thead><tr><th>Player</th><th>Twizzit declaration</th><th>Comment</th></tr></thead><tbody>{#each responses as response}<tr><td><a href="/players/{response.id}?dataset={data.datasetId}">{response.firstName} {response.lastName}</a>{#if response.kind==='substitute'} <span class="pill warn">Substitute</span>{/if}</td><td class={response.value}>{response.value}</td><td>{response.comment??'—'}</td></tr>{/each}</tbody></table></div>
   <p class="muted">Yes is declared presence, not independently verified physical attendance.</p>
-{:else}<div class="empty">No training sessions available.</div>{/if}
+{:else}<div class="empty">{data.isAll?'Pick a specific team to view training sessions.':'No training sessions available.'}</div>{/if}

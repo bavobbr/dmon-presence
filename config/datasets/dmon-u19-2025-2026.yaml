@@ -1,0 +1,18 @@
+id: dmon-u19-2025-2026
+displayName: D-MON U19G
+season: 2025/2026
+startDate: 2025-08-25
+endDate: 2026-06-01
+timezone: Europe/Brussels
+twizzit:
+  organizationId: discover
+  groupName: U19G - 1
+sportlink:
+  teamName: DMON U19G-1
+rosterPath: team_u19g.csv
+sportlinkPdfDirectory: data-u19
+classification:
+  trainingPatterns: [training, voorbereiding]
+  matchPatterns: [' - ', match, wedstrijd]
+  nullNameAsTraining: true
+aliases: {}
